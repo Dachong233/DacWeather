@@ -4,5 +4,6 @@ use_frameworks!
 
 target 'DacWeather' do
     pod 'SnapKit', '~> 5.6.0'
-    pod 'YYModel'
+    pod 'Alamofire', '~> 5.0'
+    pod 'LookinServer', :configurations => ['Debug']
 end

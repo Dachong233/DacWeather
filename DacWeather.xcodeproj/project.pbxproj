@@ -16,6 +16,10 @@
 		88F7FC1B28203CCD00F08D77 /* DacWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC1A28203CCD00F08D77 /* DacWeatherTests.swift */; };
 		88F7FC2528203CCD00F08D77 /* DacWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC2428203CCD00F08D77 /* DacWeatherUITests.swift */; };
 		88F7FC2728203CCD00F08D77 /* DacWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC2628203CCD00F08D77 /* DacWeatherUITestsLaunchTests.swift */; };
+		88F7FC3F28237BB200F08D77 /* DWWeatherApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC3E28237BB200F08D77 /* DWWeatherApiClient.swift */; };
+		88F7FC46282415F700F08D77 /* DWWeatherApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC45282415F700F08D77 /* DWWeatherApiProtocol.swift */; };
+		88F7FC4C282434CF00F08D77 /* DWWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC4B282434CF00F08D77 /* DWWeatherModel.swift */; };
+		88F7FC512825860700F08D77 /* DWNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC502825860700F08D77 /* DWNetworkService.swift */; };
 		90412FAA7DD743B0B189C6A9 /* Pods_DacWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A940A9EBA7C6750F7DB9238 /* Pods_DacWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,11 @@
 		88F7FC2028203CCD00F08D77 /* DacWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DacWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F7FC2428203CCD00F08D77 /* DacWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DacWeatherUITests.swift; sourceTree = "<group>"; };
 		88F7FC2628203CCD00F08D77 /* DacWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DacWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		88F7FC3C2821917800F08D77 /* DacWeather_Brigding_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DacWeather_Brigding_Header.h; sourceTree = "<group>"; };
+		88F7FC3E28237BB200F08D77 /* DWWeatherApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWWeatherApiClient.swift; sourceTree = "<group>"; };
+		88F7FC45282415F700F08D77 /* DWWeatherApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWWeatherApiProtocol.swift; sourceTree = "<group>"; };
+		88F7FC4B282434CF00F08D77 /* DWWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWWeatherModel.swift; sourceTree = "<group>"; };
+		88F7FC502825860700F08D77 /* DWNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWNetworkService.swift; sourceTree = "<group>"; };
 		C3656A18FF3645D6FF18C834 /* Pods-DacWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DacWeather.debug.xcconfig"; path = "Target Support Files/Pods-DacWeather/Pods-DacWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		F9CF560F9F4DD6C709588CA9 /* Pods-DacWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DacWeather.release.xcconfig"; path = "Target Support Files/Pods-DacWeather/Pods-DacWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +123,8 @@
 		88F7FC0228203CCC00F08D77 /* DacWeather */ = {
 			isa = PBXGroup;
 			children = (
+				88F7FC4D2825235100F08D77 /* Extension */,
+				88F7FC352821459B00F08D77 /* Api */,
 				88F7FC0328203CCC00F08D77 /* AppDelegate.swift */,
 				88F7FC0528203CCC00F08D77 /* SceneDelegate.swift */,
 				88F7FC0728203CCC00F08D77 /* ViewController.swift */,
@@ -121,6 +132,7 @@
 				88F7FC0C28203CCD00F08D77 /* Assets.xcassets */,
 				88F7FC0E28203CCD00F08D77 /* LaunchScreen.storyboard */,
 				88F7FC1128203CCD00F08D77 /* Info.plist */,
+				88F7FC3C2821917800F08D77 /* DacWeather_Brigding_Header.h */,
 			);
 			path = DacWeather;
 			sourceTree = "<group>";
@@ -142,13 +154,54 @@
 			path = DacWeatherUITests;
 			sourceTree = "<group>";
 		};
+		88F7FC352821459B00F08D77 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				88F7FC4A2824218800F08D77 /* Weather */,
+				88F7FC502825860700F08D77 /* DWNetworkService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		88F7FC44282415CF00F08D77 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				88F7FC45282415F700F08D77 /* DWWeatherApiProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		88F7FC4728241FC600F08D77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88F7FC4B282434CF00F08D77 /* DWWeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88F7FC4A2824218800F08D77 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				88F7FC3E28237BB200F08D77 /* DWWeatherApiClient.swift */,
+				88F7FC44282415CF00F08D77 /* Protocol */,
+				88F7FC4728241FC600F08D77 /* Model */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		88F7FC4D2825235100F08D77 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C49DFA2C823797DCD5C3D77F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				C3656A18FF3645D6FF18C834 /* Pods-DacWeather.debug.xcconfig */,
 				F9CF560F9F4DD6C709588CA9 /* Pods-DacWeather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -327,9 +380,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F7FC4C282434CF00F08D77 /* DWWeatherModel.swift in Sources */,
 				88F7FC0828203CCC00F08D77 /* ViewController.swift in Sources */,
+				88F7FC3F28237BB200F08D77 /* DWWeatherApiClient.swift in Sources */,
+				88F7FC46282415F700F08D77 /* DWWeatherApiProtocol.swift in Sources */,
 				88F7FC0428203CCC00F08D77 /* AppDelegate.swift in Sources */,
 				88F7FC0628203CCC00F08D77 /* SceneDelegate.swift in Sources */,
+				88F7FC512825860700F08D77 /* DWNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.daccc.DacWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = DacWeather/DacWeather_Brigding_Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -552,6 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.daccc.DacWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = DacWeather/DacWeather_Brigding_Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
