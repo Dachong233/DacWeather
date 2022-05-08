@@ -14,11 +14,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        DWWeatherApiClient.sharedInstance.getNowWeather(location: String(101010100), succ:  { weatherModel in
-            print(weatherModel)
-        }, fail: { errorText in
-            print(errorText)
-        })
+//        DWWeatherApiClient.sharedInstance.getNowWeather(location: String(101010100), succ:  { weatherModel in
+//            print(weatherModel)
+//        }, fail: { errorText in
+//            print(errorText)
+//        })
         
         struct Login: Codable {
             let code: Int
@@ -27,12 +27,15 @@ class ViewController: UIViewController {
         
         let params = Login.init(code: 3, username: "Dachong", password: "123456")
         
-        DWNetworkService.post(url: "http://server.daccc.cn:8080/parentHelper/loginServlet", parms: params) { data in
-            print(data)
-        }
+        DWNetworkService.post(url: "http://server.daccc.cn:8080/parentHelper/loginServlet", parms: params, succ: { data in
+            guard let dict:[String: Any] = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+            print(dict.values)
+        }, fail: { errorText in
+            print(errorText)
+        })
         
-        
-        
+        let vc = DWWeatherViewController()
+        self.view.addSubview(vc.view)
     }
 
 

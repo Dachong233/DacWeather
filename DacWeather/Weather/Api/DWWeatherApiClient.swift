@@ -18,13 +18,13 @@ class DWWeatherApiClient: DWWeatherApiProtocol {
         return instance
     }()
     
-    func getNowWeather(location: String, succ: ((DWWeatherModel) -> Void)?=nil, fail: ((String) -> Void)?=nil) {
+    func getNowWeather(location: String, succ: ((DWNowWeatherModel) -> Void)?=nil, fail: ((String) -> Void)?=nil) {
         let params: [String: String] = [
             "key": Self.key,
             "location": location
         ]
         DWNetworkService.get(url: Self.baseUrl + "/now", parms: params) { data in
-            guard let model = try? DWWeatherModel.init(data: data) else { return }
+            guard let model = try? DWNowWeatherModel.init(data: data) else { return }
             succ?(model)
         } fail: { errorText in
             fail?(errorText)

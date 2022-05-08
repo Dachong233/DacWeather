@@ -1,5 +1,5 @@
 //
-//  DWWeatherModel.swift
+//  DWNowWeatherModel.swift
 //  DacWeather
 //
 //  Created by zhangzicong on 2022/5/6.
@@ -10,22 +10,22 @@ import Foundation
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let dWWeatherModel = try DWWeatherModel(json)
+//   let DWNowWeatherModel = try DWWeatherModel(json)
 
 
-// MARK: - DWWeatherModel
-struct DWWeatherModel: Codable {
+// MARK: - DWNowWeatherModel
+struct DWNowWeatherModel: Codable {
     let code, updateTime: String?
     let fxLink: String?
     let now: DWNow?
     let refer: DWRefer?
 }
 
-// MARK: DWWeatherModel convenience initializers and mutators
+// MARK: DWNowWeatherModel convenience initializers and mutators
 
-extension DWWeatherModel {
+extension DWNowWeatherModel {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(DWWeatherModel.self, from: data)
+        self = try newJSONDecoder().decode(DWNowWeatherModel.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -45,8 +45,8 @@ extension DWWeatherModel {
         fxLink: String?? = nil,
         now: DWNow?? = nil,
         refer: DWRefer?? = nil
-    ) -> DWWeatherModel {
-        return DWWeatherModel(
+    ) -> DWNowWeatherModel {
+        return DWNowWeatherModel(
             code: code ?? self.code,
             updateTime: updateTime ?? self.updateTime,
             fxLink: fxLink ?? self.fxLink,
