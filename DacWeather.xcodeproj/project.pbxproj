@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88023DB32827DD4200D1CB9F /* DWWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DB22827DD4200D1CB9F /* DWWeatherView.swift */; };
+		88023DB62827DD9100D1CB9F /* DWWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DB52827DD9100D1CB9F /* DWWeatherViewController.swift */; };
 		88F7FC0428203CCC00F08D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0328203CCC00F08D77 /* AppDelegate.swift */; };
 		88F7FC0628203CCC00F08D77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0528203CCC00F08D77 /* SceneDelegate.swift */; };
 		88F7FC0828203CCC00F08D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0728203CCC00F08D77 /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		6A940A9EBA7C6750F7DB9238 /* Pods_DacWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DacWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88023DB22827DD4200D1CB9F /* DWWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWWeatherView.swift; sourceTree = "<group>"; };
+		88023DB52827DD9100D1CB9F /* DWWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWWeatherViewController.swift; sourceTree = "<group>"; };
 		88F7FC0028203CCC00F08D77 /* DacWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DacWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F7FC0328203CCC00F08D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F7FC0528203CCC00F08D77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		88023DB02827DD0000D1CB9F /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				88F7FC3E28237BB200F08D77 /* DWWeatherApiClient.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		88023DB12827DD2500D1CB9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88023DB22827DD4200D1CB9F /* DWWeatherView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88023DB42827DD6600D1CB9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88023DB52827DD9100D1CB9F /* DWWeatherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		88F7FBF728203CCC00F08D77 = {
 			isa = PBXGroup;
 			children = (
@@ -123,8 +151,9 @@
 		88F7FC0228203CCC00F08D77 /* DacWeather */ = {
 			isa = PBXGroup;
 			children = (
+				88F7FC4A2824218800F08D77 /* Weather */,
 				88F7FC4D2825235100F08D77 /* Extension */,
-				88F7FC352821459B00F08D77 /* Api */,
+				88F7FC352821459B00F08D77 /* Network */,
 				88F7FC0328203CCC00F08D77 /* AppDelegate.swift */,
 				88F7FC0528203CCC00F08D77 /* SceneDelegate.swift */,
 				88F7FC0728203CCC00F08D77 /* ViewController.swift */,
@@ -154,13 +183,12 @@
 			path = DacWeatherUITests;
 			sourceTree = "<group>";
 		};
-		88F7FC352821459B00F08D77 /* Api */ = {
+		88F7FC352821459B00F08D77 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				88F7FC4A2824218800F08D77 /* Weather */,
 				88F7FC502825860700F08D77 /* DWNetworkService.swift */,
 			);
-			path = Api;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		88F7FC44282415CF00F08D77 /* Protocol */ = {
@@ -182,7 +210,9 @@
 		88F7FC4A2824218800F08D77 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				88F7FC3E28237BB200F08D77 /* DWWeatherApiClient.swift */,
+				88023DB42827DD6600D1CB9F /* Controller */,
+				88023DB12827DD2500D1CB9F /* View */,
+				88023DB02827DD0000D1CB9F /* Api */,
 				88F7FC44282415CF00F08D77 /* Protocol */,
 				88F7FC4728241FC600F08D77 /* Model */,
 			);
@@ -381,9 +411,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F7FC4C282434CF00F08D77 /* DWWeatherModel.swift in Sources */,
+				88023DB62827DD9100D1CB9F /* DWWeatherViewController.swift in Sources */,
 				88F7FC0828203CCC00F08D77 /* ViewController.swift in Sources */,
 				88F7FC3F28237BB200F08D77 /* DWWeatherApiClient.swift in Sources */,
 				88F7FC46282415F700F08D77 /* DWWeatherApiProtocol.swift in Sources */,
+				88023DB32827DD4200D1CB9F /* DWWeatherView.swift in Sources */,
 				88F7FC0428203CCC00F08D77 /* AppDelegate.swift in Sources */,
 				88F7FC0628203CCC00F08D77 /* SceneDelegate.swift in Sources */,
 				88F7FC512825860700F08D77 /* DWNetworkService.swift in Sources */,
