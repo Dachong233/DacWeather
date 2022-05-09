@@ -11,6 +11,7 @@
 		88023DBF28283BF000D1CB9F /* DWNowWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DBE28283BF000D1CB9F /* DWNowWeatherViewController.swift */; };
 		88023DC128283C6300D1CB9F /* DWHourWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC028283C6300D1CB9F /* DWHourWeatherViewController.swift */; };
 		88023DC328283C7400D1CB9F /* DWDayWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC228283C7400D1CB9F /* DWDayWeatherViewController.swift */; };
+		88023DC528296A3300D1CB9F /* UIView+DWViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC428296A3300D1CB9F /* UIView+DWViewHelper.swift */; };
 		88F7FC0428203CCC00F08D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0328203CCC00F08D77 /* AppDelegate.swift */; };
 		88F7FC0828203CCC00F08D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0728203CCC00F08D77 /* ViewController.swift */; };
 		88F7FC0B28203CCC00F08D77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88F7FC0928203CCC00F08D77 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		88023DBE28283BF000D1CB9F /* DWNowWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWNowWeatherViewController.swift; sourceTree = "<group>"; };
 		88023DC028283C6300D1CB9F /* DWHourWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWHourWeatherViewController.swift; sourceTree = "<group>"; };
 		88023DC228283C7400D1CB9F /* DWDayWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWDayWeatherViewController.swift; sourceTree = "<group>"; };
+		88023DC428296A3300D1CB9F /* UIView+DWViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DWViewHelper.swift"; sourceTree = "<group>"; };
 		88F7FC0028203CCC00F08D77 /* DacWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DacWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F7FC0328203CCC00F08D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F7FC0728203CCC00F08D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		88F7FC4D2825235100F08D77 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				88023DC428296A3300D1CB9F /* UIView+DWViewHelper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88023DC128283C6300D1CB9F /* DWHourWeatherViewController.swift in Sources */,
+				88023DC528296A3300D1CB9F /* UIView+DWViewHelper.swift in Sources */,
 				88F7FC4C282434CF00F08D77 /* DWNowWeatherModel.swift in Sources */,
 				88023DBF28283BF000D1CB9F /* DWNowWeatherViewController.swift in Sources */,
 				88023DB62827DD9100D1CB9F /* DWWeatherViewController.swift in Sources */,
