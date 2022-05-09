@@ -19,11 +19,6 @@ class DWWeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    convenience init (_ frame:CGRect) {
-        var instance = DWWeatherViewController()
-        instance.view.frame = frame
-        return instance
-    }
     
     // MARK: UI
     private func initUI() {
@@ -32,7 +27,6 @@ class DWWeatherViewController: UIViewController {
         cityLable?.font = UIFont(name: "Helvetica-Bold", size: 36)
         cityLable?.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.view.addSubview(cityLable!)
-        print("DDDDDDDDDDDDDDDDDDDDDDDDDDDid load")
 
     }
     

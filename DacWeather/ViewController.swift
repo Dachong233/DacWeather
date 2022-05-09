@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         
         
 //        DWWeatherApiClient.sharedInstance.getNowWeather(location: String(101010100), succ:  { weatherModel in
@@ -34,7 +35,9 @@ class ViewController: UIViewController {
             print(errorText)
         })
         
-        let vc = DWWeatherViewController.initWithFrame(<#T##self: DWWeatherViewController##DWWeatherViewController#>)
+        let vc = DWWeatherViewController()
+        //self.present(vc, animated: true)
+        self.addChild(vc)
         
         
     }
