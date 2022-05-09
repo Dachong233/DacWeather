@@ -34,8 +34,9 @@ class ViewController: UIViewController {
             print(errorText)
         })
         
-        let vc = DWWeatherViewController()
-        self.view.addSubview(vc.view)
+        let vc = DWWeatherViewController.initWithFrame(<#T##self: DWWeatherViewController##DWWeatherViewController#>)
+        
+        
     }
 
 

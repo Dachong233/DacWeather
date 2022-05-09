@@ -19,9 +19,14 @@ class DWWeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    convenience init (_ frame:CGRect) {
+        var instance = DWWeatherViewController()
+        instance.view.frame = frame
+        return instance
+    }
     
     // MARK: UI
-    func initUI() {
+    private func initUI() {
         cityLable = UILabel()
         cityLable?.text = "广州"
         cityLable?.font = UIFont(name: "Helvetica-Bold", size: 36)
@@ -29,6 +34,11 @@ class DWWeatherViewController: UIViewController {
         self.view.addSubview(cityLable!)
         print("DDDDDDDDDDDDDDDDDDDDDDDDDDDid load")
 
+    }
+    
+    // MARK: Life Cycle
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
     }
     
 }
