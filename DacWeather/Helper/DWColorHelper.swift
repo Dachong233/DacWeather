@@ -9,16 +9,9 @@ import Foundation
 import UIKit
 
 class DWColorHelper {
-    static func dynamicColor(light: UIColor = UIColor.white, dark: UIColor = UIColor.black) -> UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.init { UITraitCollection in
-                if UITraitCollection.userInterfaceStyle == .light {
-                    return light
-                }
-                return dark
-            }
-        } else {
-            return light
-        }
+    struct Theme {
+        static let bgColor: UIColor = UIColor.dw_color(0xFFF5EB)
+        static let cardBgColor: UIColor = UIColor.dw_color(0xDEEDF0)
+        
     }
 }

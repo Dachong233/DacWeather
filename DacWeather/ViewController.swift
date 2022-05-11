@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     
     // MARK: UI
     private func initUI() {
-        self.view.backgroundColor = DWColorHelper.dynamicColor()
+        self.view.backgroundColor = DWColorHelper.Theme.bgColor
     }
     
     // MARK: Life Cycle

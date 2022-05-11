@@ -7,6 +7,9 @@
 
 import UIKit
 import SnapKit
+import SwiftSVG
+import SVGKit
+import WebKit
 
 class DWNowWeatherView: UIView {
     /// 圆角矩形边框
@@ -28,6 +31,12 @@ class DWNowWeatherView: UIView {
     private var dataLabel_weather: UILabel?
     /// 数据标签：风力等级
     private var dataLabel_windScale: UILabel?
+    
+    public var nowWeather: DWNowWeatherModel? {
+        didSet {
+            self.reloadWeatherData()
+        }
+    }
     
     // MARK: init
     
@@ -52,14 +61,13 @@ class DWNowWeatherView: UIView {
         cornerRectView = UIView(frame: CGRect(x: bounds.origin.x, y: bounds.origin.y, width: frame.width, height: frame.height))
         cornerRectView?.layer.cornerRadius = 8
         cornerRectView?.layer.masksToBounds = true
-        cornerRectView?.layer.shadowColor = UIColor.black.cgColor
-        cornerRectView?.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cornerRectView?.layer.shadowOpacity = 0.5
-        cornerRectView?.layer.shadowRadius = 8
-        cornerRectView?.backgroundColor = UIColor.systemGray6
-        
+        cornerRectView?.backgroundColor = DWColorHelper.Theme.cardBgColor
         self.addSubview(cornerRectView!)
-        //self.backgroundColor = UIColor.systemBlue
+        
+        let icon = UIImage(named: "100.png")
+        weatherIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        weatherIcon?.image = icon
+        self.addSubview(weatherIcon!)
         
     }
     
@@ -70,6 +78,20 @@ class DWNowWeatherView: UIView {
         cornerRectView?.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
         })
+        
+    }
+    
+    private func reloadWeatherData() {
+        if nowWeather != nil, let now = nowWeather!.now {
+            dataLabel_temp?.text = now.temp
+        }
+        
+    }
+    
+    private func loadWeatherIcon() {
+//        guard let path = Bundle.main.path(forResource: "1035", ofType: "svg") ,
+//        let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
+//        let document = Document(data: data) else { return }
     }
     
 }

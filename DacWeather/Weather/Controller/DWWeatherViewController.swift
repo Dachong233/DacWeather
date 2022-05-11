@@ -24,7 +24,7 @@ class DWWeatherViewController: UIViewController {
     
     // MARK: UI
     private func initUI() {
-        self.view.backgroundColor = DWColorHelper.dynamicColor()
+        self.view.backgroundColor = DWColorHelper.Theme.bgColor
         
         cityLable = UILabel()
         cityLable?.text = "广州"
@@ -60,6 +60,8 @@ class DWWeatherViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
     }
+    
+    
     
 }
 
