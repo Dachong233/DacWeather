@@ -12,6 +12,9 @@
 		88023DC128283C6300D1CB9F /* DWHourWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC028283C6300D1CB9F /* DWHourWeatherViewController.swift */; };
 		88023DC328283C7400D1CB9F /* DWDayWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC228283C7400D1CB9F /* DWDayWeatherViewController.swift */; };
 		88023DC528296A3300D1CB9F /* UIView+DWViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC428296A3300D1CB9F /* UIView+DWViewHelper.swift */; };
+		88023DC8282A100900D1CB9F /* DWFontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC7282A100900D1CB9F /* DWFontHelper.swift */; };
+		88023DCA282A616600D1CB9F /* DWColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC9282A616600D1CB9F /* DWColorHelper.swift */; };
+		88023DCC282A700A00D1CB9F /* DWNowWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DCB282A700A00D1CB9F /* DWNowWeatherView.swift */; };
 		88F7FC0428203CCC00F08D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0328203CCC00F08D77 /* AppDelegate.swift */; };
 		88F7FC0828203CCC00F08D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7FC0728203CCC00F08D77 /* ViewController.swift */; };
 		88F7FC0B28203CCC00F08D77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88F7FC0928203CCC00F08D77 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 		88023DC028283C6300D1CB9F /* DWHourWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWHourWeatherViewController.swift; sourceTree = "<group>"; };
 		88023DC228283C7400D1CB9F /* DWDayWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWDayWeatherViewController.swift; sourceTree = "<group>"; };
 		88023DC428296A3300D1CB9F /* UIView+DWViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DWViewHelper.swift"; sourceTree = "<group>"; };
+		88023DC7282A100900D1CB9F /* DWFontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWFontHelper.swift; sourceTree = "<group>"; };
+		88023DC9282A616600D1CB9F /* DWColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWColorHelper.swift; sourceTree = "<group>"; };
+		88023DCB282A700A00D1CB9F /* DWNowWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWNowWeatherView.swift; sourceTree = "<group>"; };
 		88F7FC0028203CCC00F08D77 /* DacWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DacWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F7FC0328203CCC00F08D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F7FC0728203CCC00F08D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		88023DB12827DD2500D1CB9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88023DCB282A700A00D1CB9F /* DWNowWeatherView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +146,15 @@
 				88F7FC0E28203CCD00F08D77 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88023DC6282A0FF600D1CB9F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				88023DC7282A100900D1CB9F /* DWFontHelper.swift */,
+				88023DC9282A616600D1CB9F /* DWColorHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		88F7FBF728203CCC00F08D77 = {
@@ -166,6 +182,7 @@
 		88F7FC0228203CCC00F08D77 /* DacWeather */ = {
 			isa = PBXGroup;
 			children = (
+				88023DC6282A0FF600D1CB9F /* Helper */,
 				88023DB7282829A400D1CB9F /* Supporting Files */,
 				88F7FC4A2824218800F08D77 /* Weather */,
 				88F7FC4D2825235100F08D77 /* Extension */,
@@ -425,16 +442,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				88023DC128283C6300D1CB9F /* DWHourWeatherViewController.swift in Sources */,
+				88023DCC282A700A00D1CB9F /* DWNowWeatherView.swift in Sources */,
 				88023DC528296A3300D1CB9F /* UIView+DWViewHelper.swift in Sources */,
 				88F7FC4C282434CF00F08D77 /* DWNowWeatherModel.swift in Sources */,
 				88023DBF28283BF000D1CB9F /* DWNowWeatherViewController.swift in Sources */,
 				88023DB62827DD9100D1CB9F /* DWWeatherViewController.swift in Sources */,
 				88F7FC0828203CCC00F08D77 /* ViewController.swift in Sources */,
 				88F7FC3F28237BB200F08D77 /* DWWeatherApiClient.swift in Sources */,
+				88023DC8282A100900D1CB9F /* DWFontHelper.swift in Sources */,
 				88F7FC46282415F700F08D77 /* DWWeatherApiProtocol.swift in Sources */,
 				88F7FC0428203CCC00F08D77 /* AppDelegate.swift in Sources */,
 				88F7FC512825860700F08D77 /* DWNetworkService.swift in Sources */,
 				88023DC328283C7400D1CB9F /* DWDayWeatherViewController.swift in Sources */,
+				88023DCA282A616600D1CB9F /* DWColorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

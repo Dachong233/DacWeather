@@ -12,7 +12,9 @@ import Foundation
 //
 //   let DWNowWeatherModel = try DWWeatherModel(json)
 
-
+/**
+ 返回数据文档：https://dev.qweather.com/docs/api/weather/weather-now/#%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE
+ */
 // MARK: - DWNowWeatherModel
 struct DWNowWeatherModel: Codable {
     let code, updateTime: String?

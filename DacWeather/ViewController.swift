@@ -6,20 +6,16 @@
 //
 
 import UIKit
+import SnapKit
 
 
 class ViewController: UIViewController {
+    var mainView: UIView?
+    var mainVC: DWWeatherViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        
-        
-//        DWWeatherApiClient.sharedInstance.getNowWeather(location: String(101010100), succ:  { weatherModel in
-//            print(weatherModel)
-//        }, fail: { errorText in
-//            print(errorText)
-//        })
+        initUI()
         
         struct Login: Codable {
             let code: Int
@@ -35,11 +31,32 @@ class ViewController: UIViewController {
             print(errorText)
         })
         
-        let vc = DWWeatherViewController()
-        //self.present(vc, animated: true)
-        self.addChild(vc)
+        mainView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         
+        self.view.addSubview(mainView!)
+        mainVC = DWWeatherViewController()
+        mainView!.addSubview(mainVC!.view)
+    }
+    
+    // MARK: UI
+    private func initUI() {
+        self.view.backgroundColor = DWColorHelper.dynamicColor()
+    }
+    
+    // MARK: Life Cycle
+    override func viewSafeAreaInsetsDidChange() {
+        mainView?.snp.makeConstraints({ make in
+            if #available(iOS 11.0, *) {
+                make.edges.equalTo(self.view.safeAreaLayoutGuide)
+            } else {
+                make.edges.equalTo(UIEdgeInsets.zero)
+            }
+        })
+        
+        mainVC?.view.snp.makeConstraints({ make in
+            make.edges.equalToSuperview()
+        })
     }
 
 
