@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88008E98282E7BFC00191517 /* DWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88008E97282E7BFC00191517 /* DWLabel.swift */; };
 		88023DB62827DD9100D1CB9F /* DWWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DB52827DD9100D1CB9F /* DWWeatherViewController.swift */; };
 		88023DBF28283BF000D1CB9F /* DWNowWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DBE28283BF000D1CB9F /* DWNowWeatherViewController.swift */; };
 		88023DC128283C6300D1CB9F /* DWHourWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88023DC028283C6300D1CB9F /* DWHourWeatherViewController.swift */; };
@@ -283,6 +284,7 @@
 
 /* Begin PBXFileReference section */
 		6A940A9EBA7C6750F7DB9238 /* Pods_DacWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DacWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88008E97282E7BFC00191517 /* DWLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLabel.swift; sourceTree = "<group>"; };
 		88023DB52827DD9100D1CB9F /* DWWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWWeatherViewController.swift; sourceTree = "<group>"; };
 		88023DBE28283BF000D1CB9F /* DWNowWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWNowWeatherViewController.swift; sourceTree = "<group>"; };
 		88023DC028283C6300D1CB9F /* DWHourWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWHourWeatherViewController.swift; sourceTree = "<group>"; };
@@ -580,6 +582,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		88008E96282E7BDE00191517 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88008E97282E7BFC00191517 /* DWLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		88023DB02827DD0000D1CB9F /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,6 +876,13 @@
 			path = WeatherIcons;
 			sourceTree = "<group>";
 		};
+		8816114B282DF83E0071AD38 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		88F7FBF728203CCC00F08D77 = {
 			isa = PBXGroup;
 			children = (
@@ -891,6 +908,7 @@
 		88F7FC0228203CCC00F08D77 /* DacWeather */ = {
 			isa = PBXGroup;
 			children = (
+				88008E96282E7BDE00191517 /* View */,
 				88023DC6282A0FF600D1CB9F /* Helper */,
 				88023DB7282829A400D1CB9F /* Supporting Files */,
 				88F7FC4A2824218800F08D77 /* Weather */,
@@ -949,6 +967,7 @@
 		88F7FC4A2824218800F08D77 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				8816114B282DF83E0071AD38 /* Cache */,
 				88023DB42827DD6600D1CB9F /* Controller */,
 				88023DB12827DD2500D1CB9F /* View */,
 				88023DB02827DD0000D1CB9F /* Api */,
@@ -1387,6 +1406,7 @@
 				88023DC128283C6300D1CB9F /* DWHourWeatherViewController.swift in Sources */,
 				88023DCC282A700A00D1CB9F /* DWNowWeatherView.swift in Sources */,
 				88D8D2B5282C0A1900CA2B90 /* UIColorExtension.swift in Sources */,
+				88008E98282E7BFC00191517 /* DWLabel.swift in Sources */,
 				88023DC528296A3300D1CB9F /* UIViewExtension.swift in Sources */,
 				88F7FC4C282434CF00F08D77 /* DWNowWeatherModel.swift in Sources */,
 				88023DBF28283BF000D1CB9F /* DWNowWeatherViewController.swift in Sources */,

@@ -24,6 +24,11 @@ class DWNowWeatherViewController: UIViewController {
         
     }
     
+    // MARK: Data
+    public func setNowWeatherData(_ nowWeatherData: DWNowWeatherModel) {
+        nowWeatherView?.setNowWeatherData(nowWeatherData)
+    }
+    
     
         
 
