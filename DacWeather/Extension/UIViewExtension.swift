@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-    var origin: CGPoint {
+    var dw_origin: CGPoint {
         get { self.frame.origin }
         set {
             var rect = self.frame
@@ -18,7 +18,7 @@ extension UIView {
         }
     }
     
-    var size: CGSize {
+    var dw_size: CGSize {
         get { self.frame.size }
         set {
             var rect = self.frame
@@ -27,7 +27,7 @@ extension UIView {
         }
     }
     
-    var top: CGFloat {
+    var dw_top: CGFloat {
         get { self.frame.origin.y }
         set {
             var rect = self.frame
@@ -36,7 +36,7 @@ extension UIView {
         }
     }
     
-    var bottom: CGFloat {
+    var dw_bottom: CGFloat {
         get { self.frame.origin.y + self.frame.size.height}
         set {
             var rect = self.frame
@@ -45,7 +45,7 @@ extension UIView {
         }
     }
     
-    var left: CGFloat {
+    var dw_left: CGFloat {
         get { self.frame.origin.x }
         set {
             var rect = self.frame
@@ -54,7 +54,7 @@ extension UIView {
         }
     }
     
-    var right: CGFloat {
+    var dw_right: CGFloat {
         get { self.frame.origin.x + self.frame.size.width }
         set {
             var rect = self.frame
@@ -63,7 +63,7 @@ extension UIView {
         }
     }
     
-    var width: CGFloat {
+    var dw_width: CGFloat {
         get { self.frame.size.width }
         set {
             var rect = self.frame
@@ -72,7 +72,7 @@ extension UIView {
         }
     }
     
-    var height: CGFloat {
+    var dw_height: CGFloat {
         get { self.frame.size.height }
         set {
             var rect = self.frame
