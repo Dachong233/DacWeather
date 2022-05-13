@@ -26,6 +26,8 @@ class DWNowWeatherView: UIView {
     /// 文本标签：当前
     private var textLabel_now: DWLabel?
     
+    private var splitLine: UIView?
+    
     /// 数据标签：温度
     private var dataLabel_temp: UILabel?
     /// 数据标签：体感温度
@@ -75,6 +77,10 @@ class DWNowWeatherView: UIView {
         weatherIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         weatherIcon?.image = icon
         self.addSubview(weatherIcon!)
+        // 分割线
+        splitLine = UIView(frame: CGRect.zero)
+        splitLine?.backgroundColor = UIColor.lightGray
+        self.addSubview(splitLine!)
         // 温度
         dataLabel_temp = UILabel(frame: CGRect.zero)
         dataLabel_temp?.text = "获取中..."
@@ -161,9 +167,16 @@ class DWNowWeatherView: UIView {
             make.top.equalTo(weatherIcon!.snp.bottom).offset(10).priority(.required)
             make.bottom.equalTo(textLabel_windDirection!.snp.bottom).priority(.medium)
         })
+        // 分割线
+        splitLine?.snp.makeConstraints({ make in
+            make.left.equalTo(weatherIcon!.snp.right).offset(10)
+            make.top.equalTo(dataLabel_temp!)
+            make.bottom.equalTo(textLabel_windDirection!.snp.bottom)
+            make.width.equalTo(1)
+        })
         // 温度
         dataLabel_temp?.snp.makeConstraints({ make in
-            make.left.equalTo(weatherIcon!.snp.right).offset(20)
+            make.left.equalTo(splitLine!.snp.right).offset(20)
             make.top.equalToSuperview().offset(20)
         })
         textLabel_now?.snp.makeConstraints({ make in
