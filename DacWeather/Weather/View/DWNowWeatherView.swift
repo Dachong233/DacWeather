@@ -67,14 +67,14 @@ class DWNowWeatherView: UIView {
     // MARK: UI
     
     private func initUI() {
-        cornerRectView = UIView(frame: CGRect(x: bounds.origin.x, y: bounds.origin.y, width: frame.width, height: frame.height))
+        cornerRectView = UIView(frame: self.frame)
         cornerRectView?.layer.cornerRadius = 8
         cornerRectView?.layer.masksToBounds = true
         cornerRectView?.backgroundColor = DWColorHelper.Theme.cardBgColor
         self.addSubview(cornerRectView!)
         // 天气图标
         let icon = UIImage(named: "100.png")
-        weatherIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        weatherIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         weatherIcon?.image = icon
         self.addSubview(weatherIcon!)
         // 分割线
@@ -147,13 +147,15 @@ class DWNowWeatherView: UIView {
         dataLabel_windScale?.textColor = UIColor.darkGray
         dataLabel_windScale?.sizeToFit()
         self.addSubview(dataLabel_windScale!)
-        
+        // 建立约束
+        setupConstraints()
     }
     
-    override func layoutSubviews() {
-        self.snp.makeConstraints { make in
+    private func setupConstraints() {
+        // 圆角矩形
+        cornerRectView?.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
-        }
+        })
         // 天气图标
         weatherIcon?.snp.makeConstraints({ make in
             make.top.equalToSuperview().offset(20)
@@ -210,10 +212,6 @@ class DWNowWeatherView: UIView {
             make.right.equalToSuperview().offset(-20)
             make.top.equalTo(textLabel_windDirection!)
         }
-        cornerRectView?.snp.makeConstraints({ make in
-            make.edges.equalToSuperview()
-        })
-        
         
     }
     
