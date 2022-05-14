@@ -70,7 +70,7 @@ class DWNowWeatherView: UIView {
         cornerRectView = UIView(frame: self.frame)
         cornerRectView?.layer.cornerRadius = 8
         cornerRectView?.layer.masksToBounds = true
-        cornerRectView?.backgroundColor = DWColorHelper.Theme.cardBgColor
+        cornerRectView?.backgroundColor = DWColorHelper.Theme.themeBlue
         self.addSubview(cornerRectView!)
         // 天气图标
         let icon = UIImage(named: "100.png")
@@ -93,7 +93,7 @@ class DWNowWeatherView: UIView {
         textLabel_now?.text = "当前"
         textLabel_now?.textColor = UIColor.white
         textLabel_now?.font = UIFont.systemFont(ofSize: DWFontHelper.normalSize)
-        textLabel_now?.backgroundColor = UIColor.dw_color(0xF4C7AB)
+        textLabel_now?.backgroundColor = DWColorHelper.Theme.themeOrange
         textLabel_now?.sizeToFit()
         textLabel_now?.layer.cornerRadius = 4
         textLabel_now?.layer.masksToBounds = true
@@ -171,7 +171,7 @@ class DWNowWeatherView: UIView {
         })
         // 分割线
         splitLine?.snp.makeConstraints({ make in
-            make.left.equalTo(weatherIcon!.snp.right).offset(10)
+            make.left.equalTo(weatherIcon!.snp.right).offset(15)
             make.top.equalTo(dataLabel_temp!)
             make.bottom.equalTo(textLabel_windDirection!.snp.bottom)
             make.width.equalTo(1)
@@ -181,6 +181,7 @@ class DWNowWeatherView: UIView {
             make.left.equalTo(splitLine!.snp.right).offset(20)
             make.top.equalToSuperview().offset(20)
         })
+        // 当前标签
         textLabel_now?.snp.makeConstraints({ make in
             make.right.equalToSuperview().offset(-20)
             make.bottom.equalTo(dataLabel_temp!.snp.lastBaseline)

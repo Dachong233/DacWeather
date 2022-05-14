@@ -17,12 +17,20 @@ class DWWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        let location = "101280101"
         // Do any additional setup after loading the view.
-        DWWeatherApiClient.sharedInstance.getNowWeather(location: "101010100") { nowWeatherModel in
+        DWWeatherApiClient.sharedInstance.getNowWeather(location: location) { nowWeatherModel in
             self.nowWeatherViewController?.setNowWeatherData(nowWeatherModel)
         } fail: { text in
             print("error: \(text)")
         }
+        
+        DWWeatherApiClient.sharedInstance.getHourWeather(location: location) { hourWeatherModel in
+            self.hourWeatherViewController?.setHourWeatherData(hourWeatherModel)
+        } fail: { text in
+            print("error: \(text)")
+        }
+
 
     }
     
@@ -43,9 +51,13 @@ class DWWeatherViewController: UIViewController {
         nowWeatherViewController = DWNowWeatherViewController()
         self.addChild(nowWeatherViewController!)
         self.view.addSubview(nowWeatherViewController!.view)
-        nowWeatherViewController?.didMove(toParent: self)
+        nowWeatherViewController!.didMove(toParent: self)
         
         // 小时天气
+        hourWeatherViewController = DWHourWeatherViewController()
+        self.addChild(hourWeatherViewController!)
+        self.view.addSubview(hourWeatherViewController!.view)
+        nowWeatherViewController!.didMove(toParent: self)
         
         // 星期天气
         
@@ -53,15 +65,23 @@ class DWWeatherViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        // 城市标签
         cityLable?.snp.makeConstraints({ make in
             make.left.equalToSuperview().offset(15)
             make.top.equalToSuperview().offset(15)
         })
+        // 实时天气
         nowWeatherViewController!.view.snp.makeConstraints({ make in
             make.top.equalTo(cityLable!.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(15)
             make.height.equalTo(180)
         })
+        // 小时天气
+        hourWeatherViewController!.view.snp.makeConstraints { make in
+            make.top.equalTo(nowWeatherViewController!.view.snp.bottom).offset(20)
+            make.left.right.equalTo(nowWeatherViewController!.view)
+            make.height.equalTo(170)
+        }
     }
     
     // MARK: Life Cycle

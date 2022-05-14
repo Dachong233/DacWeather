@@ -12,5 +12,6 @@ class DWFontHelper {
     public static let fontNormalName = "Helvetica"
     public static let fontBoldName = "Helvetica-Bold"
     public static let normalSize: CGFloat = UIFont.systemFontSize + 2
+    public static let smallSize: CGFloat = UIFont.systemFontSize
     
 }

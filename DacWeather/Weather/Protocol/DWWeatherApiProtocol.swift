@@ -12,4 +12,9 @@ protocol DWWeatherApiProtocol {
      实时天气
      */
     func getNowWeather(location: String, succ: ((DWNowWeatherModel)->Void)?, fail: ((String)->Void)?)
+    
+    /**
+     小时天气
+     */
+    func getHourWeather(location: String, succ: ((DWHourWeatherModel)->Void)?, fail: ((String)->Void)?)
 }

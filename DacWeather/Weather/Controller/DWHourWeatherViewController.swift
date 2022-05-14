@@ -8,22 +8,21 @@
 import UIKit
 
 class DWHourWeatherViewController: UIViewController {
+    private var hourWeatherView: DWHourWeatherView?
+    public var frame: CGRect = CGRect.zero
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func loadView() {
+        hourWeatherView = DWHourWeatherView(frame: self.frame)
+        self.view = hourWeatherView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
+    
+    // MARK: Data
+    public func setHourWeatherData(_ hourWeatherData: DWHourWeatherModel) {
+        hourWeatherView?.setHourWeatherData(hourWeatherData)
+    }
 
 }
