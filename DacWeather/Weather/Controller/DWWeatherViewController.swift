@@ -80,7 +80,7 @@ class DWWeatherViewController: UIViewController {
         hourWeatherViewController!.view.snp.makeConstraints { make in
             make.top.equalTo(nowWeatherViewController!.view.snp.bottom).offset(20)
             make.left.right.equalTo(nowWeatherViewController!.view)
-            make.height.equalTo(170)
+            make.height.equalTo(180)
         }
     }
     

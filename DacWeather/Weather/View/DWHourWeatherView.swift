@@ -109,7 +109,7 @@ class DWHourWeatherView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         })
         // 24小时天气预报标签
         textLabel_24hours?.snp.makeConstraints({ make in
-            make.top.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(16)
         })
         // 渐变view
@@ -181,7 +181,7 @@ extension DWHourWeatherView {
     
 }
 
-// MARK: CollectionViewDelegateFlowLayout
+// MARK: UICollectionViewDelegateFlowLayout
 extension DWHourWeatherView {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 60, height: self.collectionView!.dw_height)
