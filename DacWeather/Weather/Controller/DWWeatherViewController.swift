@@ -42,19 +42,17 @@ class DWWeatherViewController: UIViewController {
         // 实时天气
         nowWeatherViewController = DWNowWeatherViewController()
         self.addChild(nowWeatherViewController!)
-        self.view.addSubview((nowWeatherViewController!.view)!)
+        self.view.addSubview(nowWeatherViewController!.view)
         nowWeatherViewController?.didMove(toParent: self)
-        
-        
         
         // 小时天气
         
         // 星期天气
         
-        self.layoutSubviews()
+        self.setupConstraints()
     }
     
-    private func layoutSubviews() {
+    private func setupConstraints() {
         cityLable?.snp.makeConstraints({ make in
             make.left.equalToSuperview().offset(15)
             make.top.equalToSuperview().offset(15)
