@@ -9,6 +9,10 @@ import UIKit
 
 class DWHourWeatherCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
+    override var collectionViewContentSize: CGSize {
+        return CGSize.zero
+    }
+    
     
 
 }

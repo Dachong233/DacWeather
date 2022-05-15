@@ -54,19 +54,20 @@ class DWHourWeatherCell: UICollectionViewCell {
     
     private func setupConstraints() {
         dataLabel_time?.snp.makeConstraints({ make in
-            make.top.left.equalToSuperview()
+            make.top.equalToSuperview()
+            make.centerX.equalTo(dataLabel_temp!)
         })
         weatherIcon?.snp.makeConstraints({ make in
             make.size.equalTo(36).priority(.required)
-            make.centerX.equalTo(dataLabel_time!)
+            make.centerX.equalTo(dataLabel_temp!)
             make.top.equalTo(dataLabel_time!.snp.bottom).offset(5)
         })
         dataLabel_weather?.snp.makeConstraints({ make in
-            make.centerX.equalTo(weatherIcon!)
+            make.centerX.equalTo(dataLabel_temp!)
             make.top.equalTo(weatherIcon!.snp.bottom).offset(5)
         })
         dataLabel_temp?.snp.makeConstraints({ make in
-            make.centerX.equalTo(weatherIcon!)
+            make.left.equalToSuperview()
             make.top.equalTo(dataLabel_weather!.snp.bottom).offset(5)
         })
     }

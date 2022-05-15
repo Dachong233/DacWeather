@@ -84,6 +84,7 @@ class DWHourWeatherView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 10
         
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView?.backgroundColor = UIColor.clear
@@ -184,7 +185,7 @@ extension DWHourWeatherView {
 // MARK: UICollectionViewDelegateFlowLayout
 extension DWHourWeatherView {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: self.collectionView!.dw_height)
+        return CGSize(width: 50, height: self.collectionView!.dw_height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
