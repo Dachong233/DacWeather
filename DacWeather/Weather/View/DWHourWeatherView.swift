@@ -52,10 +52,10 @@ class DWHourWeatherView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     
     private func initUI() {
         // 圆角矩形
-        cornerRectView = UIView(frame: CGRect(x: bounds.origin.x, y: bounds.origin.y, width: self.frame.width, height: self.frame.height))
+        cornerRectView = UIView(frame: self.frame)
         cornerRectView?.layer.cornerRadius = 8
         cornerRectView?.layer.masksToBounds = true
-        cornerRectView?.backgroundColor = DWColorHelper.Theme.themeOrange
+        cornerRectView?.backgroundColor = DWColorHelper.Theme.themePink
         self.addSubview(cornerRectView!)
         
         // 天气列表
@@ -66,14 +66,14 @@ class DWHourWeatherView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         textLabel_24hours?.text = "24小时预报"
         textLabel_24hours?.textColor = UIColor.white
         textLabel_24hours?.font = UIFont.systemFont(ofSize: DWFontHelper.normalSize)
-        textLabel_24hours?.backgroundColor = DWColorHelper.Theme.themeBrown
+        textLabel_24hours?.backgroundColor = DWColorHelper.Theme.themeGreen1
         textLabel_24hours?.sizeToFit()
         textLabel_24hours?.layer.cornerRadius = 4
         textLabel_24hours?.layer.masksToBounds = true
         self.addSubview(textLabel_24hours!)
         
-        startGradientView = DWGradientView(frame: CGRect.zero, startColor: DWColorHelper.Theme.themeOrange, endColor: DWColorHelper.Theme.themeOrange.withAlphaComponent(0.2))
-        endGradientView = DWGradientView(frame: CGRect.zero, startColor: DWColorHelper.Theme.themeOrange, endColor: DWColorHelper.Theme.themeOrange.withAlphaComponent(0.2))
+        startGradientView = DWGradientView(frame: CGRect.zero, startColor: DWColorHelper.Theme.themePink, endColor: DWColorHelper.Theme.themePink.withAlphaComponent(0.2))
+        endGradientView = DWGradientView(frame: CGRect.zero, startColor: DWColorHelper.Theme.themePink, endColor: DWColorHelper.Theme.themePink.withAlphaComponent(0.2))
         endGradientView?.transform = CGAffineTransform(scaleX: -1, y: 1)
         self.addSubview(startGradientView!)
         self.addSubview(endGradientView!)
