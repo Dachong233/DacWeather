@@ -164,22 +164,15 @@ extension DWHourWeatherView {
         }
               
         let icon = UIImage(named: (weather.icon ?? "100") + ".png")
-        if let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: DWHourWeatherCell.description(), for: indexPath)) as? DWHourWeatherCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DWHourWeatherCell.description(), for: indexPath) as? DWHourWeatherCell {
             cell.setTime(time)
             cell.setWeatherIcon(icon)
             cell.setWeatherText(weather.text ?? "未知")
             cell.setTemperature((weather.temp ?? "未知") + "°C")
             return cell
         }
-        let cell = DWHourWeatherCell(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
-        cell.setTime(time)
-        cell.setWeatherIcon(icon)
-        cell.setWeatherText(weather.text ?? "未知")
-        cell.setTemperature((weather.temp ?? "未知") + "°C")
-        return cell
+        return collectionView.dequeueReusableCell(withReuseIdentifier: DWHourWeatherCell.description(), for: indexPath)
     }
-    
-    
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
