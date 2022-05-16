@@ -128,17 +128,17 @@ class DWDayWeatherCell: UICollectionViewCell {
         let attributedMaxTempDict: [NSAttributedString.Key: Any] = [
             NSMutableAttributedString.Key.foregroundColor: UIColor.darkGray
         ]
-        let attributedDashDict: [NSAttributedString.Key: Any] = [
+        let attributedsplashDict: [NSAttributedString.Key: Any] = [
             NSMutableAttributedString.Key.foregroundColor: UIColor.lightGray
         ]
         
         let minRange = NSRange(location: 0, length: self.minTemperature.count)
         let maxRange = NSRange(location: self.minTemperature.count, length: self.maxTemperature.count)
-        let dashRange = NSRange(location: self.minTemperature.count, length: 1)
+        let splashRange = NSRange(location: self.minTemperature.count, length: 1)
         
         attributedTemp.addAttributes(attributedMinTempDict, range: minRange)
         attributedTemp.addAttributes(attributedMaxTempDict, range: maxRange)
-        attributedTemp.addAttributes(attributedDashDict, range: dashRange)
+        attributedTemp.addAttributes(attributedsplashDict, range: splashRange)
         dataLabel_temp?.attributedText = attributedTemp
     }
 }
