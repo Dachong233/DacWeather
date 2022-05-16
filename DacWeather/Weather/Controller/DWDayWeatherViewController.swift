@@ -8,6 +8,14 @@
 import UIKit
 
 class DWDayWeatherViewController: UIViewController {
+    private var dayWeatherView: DWDayWeatherView?
+    public var frame: CGRect = CGRect.zero
+    
+    override func loadView() {
+        dayWeatherView = DWDayWeatherView(frame: frame)
+        self.view = dayWeatherView!
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +24,9 @@ class DWDayWeatherViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: Data
+    public func setDayWeatherData(_ dayWeatherData: DWDayWeatherModel) {
+        dayWeatherView?.setDayWeatherData(dayWeatherData)
     }
-    */
 
 }

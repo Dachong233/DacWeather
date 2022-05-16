@@ -17,4 +17,9 @@ protocol DWWeatherApiProtocol {
      小时天气
      */
     func getHourWeather(location: String, succ: ((DWHourWeatherModel)->Void)?, fail: ((String)->Void)?)
+    
+    /**
+     逐天天气
+     */
+    func getDayWeather(location: String, succ: ((DWDayWeatherModel)->Void)?, fail: ((String)->Void)?)
 }

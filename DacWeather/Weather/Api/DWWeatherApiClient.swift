@@ -51,5 +51,21 @@ class DWWeatherApiClient: DWWeatherApiProtocol {
         }
     }
     
+    func getDayWeather(location: String, succ: ((DWDayWeatherModel) -> Void)?, fail: ((String) -> Void)?) {
+        let params: [String: String] = [
+            "key": Self.key,
+            "location": location
+        ]
+        DWNetworkService.get(url: Self.baseUrl + "/15d", parms: params) { data in
+            guard let model = try? DWDayWeatherModel.init(data: data) else {
+                fail?("序列化失败")
+                return
+            }
+            succ?(model)
+        } fail: { errorText in
+            fail?(errorText)
+        }
+    }
+    
     
 }

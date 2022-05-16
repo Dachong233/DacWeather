@@ -30,6 +30,13 @@ class DWWeatherViewController: UIViewController {
         } fail: { text in
             print("error: \(text)")
         }
+        
+        DWWeatherApiClient.sharedInstance.getDayWeather(location: location) { dayWeatherModel in
+            self.dayWeatherViewController?.setDayWeatherData(dayWeatherModel)
+        } fail: { text in
+            print("error: \(text)")
+        }
+
 
 
     }
@@ -60,6 +67,10 @@ class DWWeatherViewController: UIViewController {
         nowWeatherViewController!.didMove(toParent: self)
         
         // 星期天气
+        dayWeatherViewController = DWDayWeatherViewController()
+        self.addChild(dayWeatherViewController!)
+        self.view.addSubview(dayWeatherViewController!.view)
+        dayWeatherViewController?.didMove(toParent: self)
         
         self.setupConstraints()
     }
@@ -81,6 +92,12 @@ class DWWeatherViewController: UIViewController {
             make.top.equalTo(nowWeatherViewController!.view.snp.bottom).offset(20)
             make.left.right.equalTo(nowWeatherViewController!.view)
             make.height.equalTo(180)
+        }
+        // 逐天天气
+        dayWeatherViewController!.view.snp.makeConstraints { make in
+            make.top.equalTo(hourWeatherViewController!.view.snp.bottom).offset(20)
+            make.left.right.equalTo(hourWeatherViewController!.view)
+            make.height.equalTo(300)
         }
     }
     
