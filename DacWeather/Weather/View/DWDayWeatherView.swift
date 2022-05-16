@@ -126,9 +126,6 @@ extension DWDayWeatherView {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (indexPath.row >= dayWeather.count) {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: DWDayWeatherCell.description(), for: indexPath)
-        }
         let weather = dayWeather[indexPath.row]
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DWDayWeatherCell.description(), for: indexPath) as? DWDayWeatherCell {
