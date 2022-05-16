@@ -96,11 +96,11 @@ class DWDayWeatherView: UIView, UICollectionViewDataSource, UICollectionViewDele
         // 渐变view
         startGradientView?.snp.makeConstraints({ make in
             make.left.right.top.equalTo(collectionView!)
-            make.height.equalTo(20)
+            make.height.equalTo(16)
         })
         endGradientView?.snp.makeConstraints({ make in
             make.left.right.bottom.equalTo(collectionView!)
-            make.height.equalTo(20)
+            make.height.equalTo(16)
         })
         
     }
@@ -147,6 +147,6 @@ extension DWDayWeatherView {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        return UIEdgeInsets(top: 16, left: 0, bottom: 20, right: 0)
     }
 }

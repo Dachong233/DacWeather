@@ -13,6 +13,9 @@ class DWDayWeatherCell: UICollectionViewCell {
     private var dataLabel_fxDate: UILabel?
     /// 当日最高/最低温度
     private var dataLabel_temp: UILabel?
+    
+    /// ViewGroup
+    private var viewGroup: UIView?
     /// 当日白天天气图标
     private var weatherIcon: UIImageView?
     /// 当日白天天气文本
@@ -40,17 +43,20 @@ class DWDayWeatherCell: UICollectionViewCell {
         dataLabel_fxDate?.font = UIFont.systemFont(ofSize: DWFontHelper.smallSize)
         dataLabel_fxDate?.sizeToFit()
         self.addSubview(dataLabel_fxDate!)
+        // 天气viewGroup
+        viewGroup = UIView(frame: .zero)
+        self.addSubview(viewGroup!)
         // 天气图标
         weatherIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         weatherIcon?.image = UIImage(named: "100.png")
-        self.addSubview(weatherIcon!)
+        self.viewGroup!.addSubview(weatherIcon!)
         // 天气文本
         dataLabel_weatherText = UILabel(frame: CGRect.zero)
         dataLabel_weatherText?.text = "晴"
         dataLabel_weatherText?.textColor = UIColor.darkGray
         dataLabel_weatherText?.font = UIFont.systemFont(ofSize: DWFontHelper.smallSize)
         dataLabel_weatherText?.sizeToFit()
-        self.addSubview(dataLabel_weatherText!)
+        self.viewGroup!.addSubview(dataLabel_weatherText!)
         // 当日最高/最低温度
         dataLabel_temp = UILabel(frame: CGRect.zero)
         dataLabel_temp?.text = "未知°C/未知°C"
@@ -68,10 +74,15 @@ class DWDayWeatherCell: UICollectionViewCell {
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(10)
         })
+        // 天气viewGroup
+        viewGroup?.snp.makeConstraints({ make in
+            make.height.equalTo(self.dw_height)
+            make.width.equalTo(weatherIcon!.dw_width + dataLabel_weatherText!.dw_width)
+            make.centerX.centerY.equalToSuperview()
+        })
         // 天气图标、天气文本
         weatherIcon?.snp.makeConstraints({ make in
-            make.centerY.equalTo(dataLabel_fxDate!)
-            make.left.equalTo(dataLabel_fxDate!.snp.right).offset(30)
+            make.left.centerY.equalToSuperview()
             make.size.equalTo(24).priority(.required)
         })
         dataLabel_weatherText?.snp.makeConstraints({ make in
@@ -120,7 +131,7 @@ class DWDayWeatherCell: UICollectionViewCell {
         let attributedDashDict: [NSAttributedString.Key: Any] = [
             NSMutableAttributedString.Key.foregroundColor: UIColor.lightGray
         ]
-        let index = text.firstIndex(of: "/")
+        
         let minRange = NSRange(location: 0, length: self.minTemperature.count)
         let maxRange = NSRange(location: self.minTemperature.count, length: self.maxTemperature.count)
         let dashRange = NSRange(location: self.minTemperature.count, length: 1)
