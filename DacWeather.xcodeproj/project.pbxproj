@@ -547,6 +547,7 @@
 		88F59A9B283258C0001BCDEF /* DWDayWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWDayWeatherView.swift; sourceTree = "<group>"; };
 		88F59A9D28325950001BCDEF /* DWDayWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWDayWeatherModel.swift; sourceTree = "<group>"; };
 		88F59AA128325EE5001BCDEF /* DWDayWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWDayWeatherCell.swift; sourceTree = "<group>"; };
+		88F59AA32833E40C001BCDEF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88F7FC0028203CCC00F08D77 /* DacWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DacWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F7FC0328203CCC00F08D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F7FC0728203CCC00F08D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -946,6 +947,7 @@
 				88F7FC0C28203CCD00F08D77 /* Assets.xcassets */,
 				88F7FC1128203CCD00F08D77 /* Info.plist */,
 				88F7FC3C2821917800F08D77 /* DacWeather_Brigding_Header.h */,
+				88F59AA32833E40C001BCDEF /* MyPlayground.playground */,
 			);
 			path = DacWeather;
 			sourceTree = "<group>";
