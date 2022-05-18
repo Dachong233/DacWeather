@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         mainView?.snp.makeConstraints({ make in
             if #available(iOS 11.0, *) {
                 make.edges.equalTo(self.view.safeAreaLayoutGuide)
+                make.bottom.equalTo(self.view)
             } else {
                 make.edges.equalTo(UIEdgeInsets.zero)
             }

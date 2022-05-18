@@ -83,7 +83,8 @@ class DWDayWeatherView: UIView, UICollectionViewDataSource, UICollectionViewDele
     
     private func setupConstraints() {
         cornerRectView?.snp.makeConstraints({ make in
-            make.edges.equalToSuperview()
+            make.horizontalEdges.top.equalToSuperview()
+            make.bottom.equalTo(collectionView!.snp.bottom)
         })
         textLabel_15day?.snp.makeConstraints({ make in
             make.right.top.equalToSuperview().inset(16)
@@ -91,18 +92,24 @@ class DWDayWeatherView: UIView, UICollectionViewDataSource, UICollectionViewDele
         collectionView?.snp.makeConstraints({ make in
             make.top.equalTo(textLabel_15day!.snp.bottom)
             make.left.right.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview()
         })
         // 渐变view
         startGradientView?.snp.makeConstraints({ make in
             make.left.right.top.equalTo(collectionView!)
-            make.height.equalTo(16)
+            make.height.equalTo(Self.collectionViewUIProperty.insetForSection.top)
         })
         endGradientView?.snp.makeConstraints({ make in
             make.left.right.bottom.equalTo(collectionView!)
-            make.height.equalTo(16)
+            make.height.equalTo(Self.collectionViewUIProperty.insetForSection.bottom)
         })
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView!.dw_height = collectionView!.contentSize.height
+        cornerRectView!.dw_height = CGFloat(collectionView!.dw_height + Self.collectionViewUIProperty.insetForSection.top + Self.collectionViewUIProperty.insetForSection.bottom)
+        endGradientView!.dw_bottom = collectionView!.dw_bottom
     }
     
     
@@ -111,6 +118,12 @@ class DWDayWeatherView: UIView, UICollectionViewDataSource, UICollectionViewDele
     public func setDayWeatherData(_ dayWeatherData: DWDayWeatherModel) {
         self.dayWeather = dayWeatherData.daily ?? []
         collectionView?.reloadData()
+        collectionView?.layoutIfNeeded()
+        setNeedsLayout()
+    }
+    
+    public func contentSize() -> CGSize {
+        return self.cornerRectView?.dw_size ?? CGSize.zero
     }
 
 }
@@ -143,10 +156,17 @@ extension DWDayWeatherView {
 // MARK: UICollectionViewDelegateFlowLayout
 extension DWDayWeatherView {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.dw_width, height: 32)
+        return CGSize(width: collectionView.dw_width, height: Self.collectionViewUIProperty.itemHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 0, bottom: 20, right: 0)
+        return Self.collectionViewUIProperty.insetForSection
+    }
+}
+
+extension DWDayWeatherView {
+    struct collectionViewUIProperty {
+        static let insetForSection: UIEdgeInsets = UIEdgeInsets(top: 16, left: 0, bottom: 20, right: 0)
+        static let itemHeight: CGFloat = 32
     }
 }

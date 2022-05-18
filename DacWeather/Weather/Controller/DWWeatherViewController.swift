@@ -13,6 +13,8 @@ class DWWeatherViewController: UIViewController {
     private var nowWeatherViewController: DWNowWeatherViewController?
     private var hourWeatherViewController: DWHourWeatherViewController?
     private var dayWeatherViewController: DWDayWeatherViewController?
+    private var scrollView: UIScrollView?
+    private var contentView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +23,21 @@ class DWWeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
         DWWeatherApiClient.sharedInstance.getNowWeather(location: location) { nowWeatherModel in
             self.nowWeatherViewController?.setNowWeatherData(nowWeatherModel)
+            self.view.setNeedsLayout()
         } fail: { text in
             print("error: \(text)")
         }
         
         DWWeatherApiClient.sharedInstance.getHourWeather(location: location) { hourWeatherModel in
             self.hourWeatherViewController?.setHourWeatherData(hourWeatherModel)
+            self.view.setNeedsLayout()
         } fail: { text in
             print("error: \(text)")
         }
         
         DWWeatherApiClient.sharedInstance.getDayWeather(location: location) { dayWeatherModel in
             self.dayWeatherViewController?.setDayWeatherData(dayWeatherModel)
+            self.view.setNeedsLayout()
         } fail: { text in
             print("error: \(text)")
         }
@@ -46,30 +51,37 @@ class DWWeatherViewController: UIViewController {
     private func initUI() {
         self.view.backgroundColor = DWColorHelper.Theme.bgColor
         
+        contentView = UIView(frame: CGRect.zero)
+        
+        scrollView = UIScrollView(frame: self.view.frame)
+        scrollView?.addSubview(contentView!)
+        self.view.addSubview(scrollView!)
+        
+        
         // 城市标签
         cityLable = UILabel()
         cityLable?.text = "广州"
         cityLable?.font = UIFont.boldSystemFont(ofSize: DWWeatherViewController.Size.cityLabelFontSize)
         cityLable?.frame = CGRect.zero
         cityLable?.sizeToFit()
-        self.view.addSubview(cityLable!)
+        contentView?.addSubview(cityLable!)
         
         // 实时天气
         nowWeatherViewController = DWNowWeatherViewController()
         self.addChild(nowWeatherViewController!)
-        self.view.addSubview(nowWeatherViewController!.view)
+        contentView?.addSubview(nowWeatherViewController!.view)
         nowWeatherViewController!.didMove(toParent: self)
         
         // 小时天气
         hourWeatherViewController = DWHourWeatherViewController()
         self.addChild(hourWeatherViewController!)
-        self.view.addSubview(hourWeatherViewController!.view)
+        contentView?.addSubview(hourWeatherViewController!.view)
         nowWeatherViewController!.didMove(toParent: self)
         
-        // 星期天气
+        // 15天逐天天气
         dayWeatherViewController = DWDayWeatherViewController()
         self.addChild(dayWeatherViewController!)
-        self.view.addSubview(dayWeatherViewController!.view)
+        contentView?.addSubview(dayWeatherViewController!.view)
         dayWeatherViewController?.didMove(toParent: self)
         
         self.setupConstraints()
@@ -97,7 +109,16 @@ class DWWeatherViewController: UIViewController {
         dayWeatherViewController!.view.snp.makeConstraints { make in
             make.top.equalTo(hourWeatherViewController!.view.snp.bottom).offset(20)
             make.left.right.equalTo(hourWeatherViewController!.view)
-            make.height.equalTo(300)
+            make.height.equalTo(dayWeatherViewController!.contentSize().height)
+        }
+        // scrollView
+        scrollView?.snp.makeConstraints({ make in
+            make.edges.equalToSuperview()
+        })
+        contentView!.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(dayWeatherViewController!.view.snp.bottom)
+            make.horizontalEdges.equalTo(self.view)
         }
     }
     
@@ -106,6 +127,11 @@ class DWWeatherViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView?.contentSize = contentView?.dw_size ?? CGSize.zero
     }
     
     

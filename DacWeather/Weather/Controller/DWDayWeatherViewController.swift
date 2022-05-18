@@ -28,5 +28,9 @@ class DWDayWeatherViewController: UIViewController {
     public func setDayWeatherData(_ dayWeatherData: DWDayWeatherModel) {
         dayWeatherView?.setDayWeatherData(dayWeatherData)
     }
+    
+    public func contentSize() -> CGSize{
+        return dayWeatherView?.contentSize() ?? CGSize.zero
+    }
 
 }
